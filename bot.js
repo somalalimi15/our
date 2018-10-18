@@ -73,52 +73,6 @@ client.user.setGame(`- Wèlčomè Ťo Óřş.🎤`,"http://twitch.tv/Mohamed1928
   console.log('')
 });
 
-client.on('voiceStateUpdate', (o,n) => {
 
-    if (o.voiceChannel && !n.voiceChannel) {
-
-        ss-=1
-
-        n.guild.channels.get("502466473671786507").edit({
-
-            name : "# Óřş Òńļįńė ☔.: [" + ss+ "]"
-
-        })
-
-    };
-
-    if (n.voiceChannel && !o.voiceChannel) {
-
-        ss+=1
-
-        n.guild.channels.get("502466473671786507").edit({
-
-            name : "# Óřş Òńļįńė ☔.: [" + ss+ "]"
-
-        })
-
-    }
-
-})
-
-client.on("ready", () => {
-
-    client.guilds.get("502191699070812194").members.forEach(m => {
-
-        if (m.voiceChannel) {
-
-            ss+=1
-
-        };
-
-        client.channels.get("502466473671786507").edit({
-
-            name : "# Óřş Òńļįńė ☔.: [" + ss+ "]"
-
-        })
-
-    });
-
-});
 
 client.login(process.env.BOT_TOKEN);
