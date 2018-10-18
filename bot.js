@@ -71,7 +71,9 @@ client.user.setGame(`- Wèlčomè Ťo Óřş. 🎤`,"http://twitch.tv/Mohamed192
 });
 
 
-
+client.on('guildMemberAdd', member=> {
+    member.addRole(member.guild.roles.find("name","Óřş."));
+    });
 
 client.on('guildMemberAdd', member=> {
 
@@ -79,7 +81,7 @@ client.on('guildMemberAdd', member=> {
 
     client.channels.get("502466166095216641").send(`**- 🍫 #Wèlčomè Ťo Óřş. 🎤**
 
-**# ${member} .** `);
+**# ${member} .**`);
 
     });
 
