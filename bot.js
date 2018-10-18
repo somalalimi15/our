@@ -79,7 +79,7 @@ client.on('guildMemberAdd', member=> {
 
 
 
-    client.channels.get("502466166095216641").send(`**- 🍫 #Wèlčomè Ťo Óřş. 🎤**
+    client.channels.get("502466166095216641").send(`**- 🍫 #Wèlčomè Ťo Òúr. 🎤**
 
 **# ${member} .**`);
 
