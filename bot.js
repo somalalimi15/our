@@ -43,9 +43,6 @@ const prefix = '$'
 
 ///
 
-client.on('ready', () => {
-    client.channels.find(c => c.id === '502466502641844226').join();
-});
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -74,53 +71,7 @@ client.user.setGame(`- Wèlčomè Ťo Óřş. 🎤`,"http://twitch.tv/Mohamed192
 });
 
 
-client.on('voiceStateUpdate', (o,n) => {
 
-    if (o.voiceChannel && !n.voiceChannel) {
-
-        ss-=1
-
-        n.guild.channels.get("502466473671786507").edit({
-
-            name : "# Òúş. Online ☔.: [" + ss+ "]"
-
-        })
-
-    };
-
-    if (n.voiceChannel && !o.voiceChannel) {
-
-        ss+=1
-
-        n.guild.channels.get("502466473671786507").edit({
-
-            name : "# Òúş. Online ☔.: [" + ss+ "]"
-
-        })
-
-    }
-
-})
-
-client.on("ready", () => {
-
-    client.guilds.get("502191699070812194").members.forEach(m => {
-
-        if (m.voiceChannel) {
-
-            ss+=1
-
-        };
-
-        client.channels.get("502466473671786507").edit({
-
-            name : "# Òúş. Online ☔.: [" + ss+ "]"
-
-        })
-
-    });
-
-});
 
 client.on('guildMemberAdd', member=> {
 
