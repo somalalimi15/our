@@ -270,7 +270,7 @@ client.on('message', msg => {
 
     if(message.content.includes('discord.gg')){
 
-                                            if(!message.channel.guild) return message.reply('**```- :chocolate_bar: #Wèlčomè Ťo Óřş.:microphone:```.**');
+                                            if(!message.channel.guild) return message.reply('**- :chocolate_bar: #Wèlčomè Ťo Óřş.:microphone:.**');
 
         if (!message.member.hasPermissions(['ADMINISTRATOR'])){
 
@@ -289,7 +289,7 @@ client.on('message', msg => {
 
     if(message.content.includes('youtube')){
 
-                                            if(!message.channel.guild) return message.reply('**```- :chocolate_bar: #Wèlčomè Ťo Óřş.:microphone:```.**');
+                                            if(!message.channel.guild) return message.reply('**- :chocolate_bar: #Wèlčomè Ťo Óřş.:microphone:.**');
 
         if (!message.member.hasPermissions(['ADMINISTRATOR'])){
 
@@ -311,7 +311,7 @@ client.on('message', message => {
 
                   if (!message.member.hasPermissions(['MANAGE_MESSAGES'])){
 
-     message.channel.send('ban <@' + message.author.id + '>')
+     message.channel.send('**تـم حـضره مـن السيرفـر.بسبب نشر روابط ديسكورد** <@' + message.author.id + '>')
 
      message.delete() 
 
@@ -358,7 +358,7 @@ client.on('message', message => {
 
                   if (!message.member.hasPermissions(['MANAGE_MESSAGES'])){
 
-     message.channel.send('ban <@' + message.author.id + '>')
+     message.channel.send('**تـم حـضره مـن السيرفـر.روابط يوتيوب** <@' + message.author.id + '>')
 
      message.delete() 
 
