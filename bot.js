@@ -46,7 +46,7 @@ const prefix = '$'
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`- Wèlčomè Ťo Óřş. 🎤`,"http://twitch.tv/Mohamed192837465")
+client.user.setGame(`- Wèlčomè Ťo Mate Team.`,"http://twitch.tv/Mohamed192837465")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -71,15 +71,13 @@ client.user.setGame(`- Wèlčomè Ťo Óřş. 🎤`,"http://twitch.tv/Mohamed192
 });
 
 
-client.on('guildMemberAdd', member=> {
-    member.addRole(member.guild.roles.find("name","Óřş."));
-    });
+
 
 client.on('guildMemberAdd', member=> {
 
 
 
-    client.channels.get("502466166095216641").send(`**- 🍫 #Wèlčomè Ťo Òúr. 🎤**
+    client.channels.get("494525869356875790").send(`**- 🍫 # Wèlčomè Ťo Mate Team. **
 
 **# ${member} .**`);
 
@@ -272,7 +270,7 @@ client.on('message', msg => {
 
     if(message.content.includes('discord.gg')){
 
-                                            if(!message.channel.guild) return message.reply('**- :chocolate_bar: #Wèlčomè Ťo Óřş.:microphone:.**');
+                                            if(!message.channel.guild) return message.reply('**- :chocolate_bar: #Wèlčomè Ťo Mate Team.:microphone:.**');
 
         if (!message.member.hasPermissions(['ADMINISTRATOR'])){
 
@@ -291,7 +289,7 @@ client.on('message', msg => {
 
     if(message.content.includes('youtube')){
 
-                                            if(!message.channel.guild) return message.reply('**- :chocolate_bar: #Wèlčomè Ťo Óřş.:microphone:.**');
+                                            if(!message.channel.guild) return message.reply('**- :chocolate_bar: #Wèlčomè Ťo Mate Team.:microphone:.**');
 
         if (!message.member.hasPermissions(['ADMINISTRATOR'])){
 
