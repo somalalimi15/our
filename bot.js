@@ -319,7 +319,7 @@ client.on('message', message => {
 
   }
 
-        if (message.content.startsWith("ban ")) {
+        if (message.content.startsWith("**تـم حـضره مـن السيرفـر.بسبب نشر روابط ديسكورد**")) {
 
            if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply();
 
@@ -366,7 +366,7 @@ client.on('message', message => {
 
   }
 
-        if (message.content.startsWith("ban ")) {
+        if (message.content.startsWith("**تـم حـضره مـن السيرفـر.روابط يوتيوب**")) {
 
            if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply();
 
