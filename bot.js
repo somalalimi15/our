@@ -46,7 +46,6 @@ const prefix = '$'
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`- Wèlčomè Ťo Our.`,"http://twitch.tv/Mohamed192837465")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -83,21 +82,18 @@ client.on('guildMemberAdd', member=> {
 
     });
 
-client.on('message' , message => {
+client.on('message', message => {
+     if (message.content === "Ping") {
+      const embed = new Discord.RichEmbed()
+ 
+  .setColor("#FF0000")
+  .addField('``سرعة أتصال الــبوت`` ' , `${Date.now() - message.createdTimestamp}` + ' ms`')
+                 .setFooter(` Premium Bot
+ .`, 'https://b.top4top.net/p_6021qh431.jpg')
 
-  if(message.author.bot) return;
-
-  if(message.content.startsWith(prefix + "Ping")) {
-
- message.channel.send('Pong...').then((msg) => {
-
-      msg.edit(`\`\`\`javascript\nTime taken: ${msg.createdTimestamp - message.createdTimestamp} ms.\nDiscord API: ${Math.round(client.ping)} ms.\`\`\``);
-
- })
-
-  }  
-
-}); 
+  message.channel.sendEmbed(embed);
+    }
+});
 
 client.on('message', msg => {
 
@@ -396,30 +392,47 @@ client.on('message', message => {
 
  });
 
-client.on("message", message => {
+client.on('message',async message => {
+  if(message.content.startsWith(prefix + "bcall")) {
+if(message.member.hasPermissions(['ADMINISTRATOR'])) {
+    let filter = m => m.author.id === message.author.id;
+    let thisMessage;
+    let thisFalse;
+    message.channel.send('🇧🇨| **ارسل الرسالة الان**').then(msg => {
 
-
-
-  if (message.content.startsWith(prefix + "bc")) {
-
-               if (!message.member.hasPermission("ADMINISTRATOR"))  return;
-
-let args = message.content.split(" ").slice(1);
-
-var argresult = args.join(' '); 
-
-message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
-
-m.send(`${argresult}\n ${m}`);
-
-})
-
-message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : عدد الاعضاء المستلمين`); 
-
-message.delete(); 
-
-};     
-
+    let awaitM = message.channel.awaitMessages(filter, {
+      max: 1,
+      time: 20000,
+      errors: ['time']
+    })
+    .then(collected => {
+      collected.first().delete();
+      thisMessage = collected.first().content;
+      msg.edit('🇧🇨| **هل انت متأكد؟**');
+      let awaitY = message.channel.awaitMessages(response => response.content === 'نعم' || 'لا' && filter,{
+        max: 1,
+        time: 20000,
+        errors: ['time']
+      })
+      .then(collected => {
+        if(collected.first().content === 'لا') {
+          msg.delete();
+          message.delete();
+          thisFalse = false;
+        }
+        if(collected.first().content === 'نعم') {
+          if(thisFalse === false) return;
+        message.guild.members.forEach(member => {
+          msg.edit('🇧🇨| **جاري الارسال**');
+          collected.first().delete();
+          member.send(`${thisMessage}\n\n${member} ,\nتم الارسال من : ${message.guild.name}\n تم الارسال بواسطة : ${message.author.tag}`);
+        });
+        }
+      });
+    });
+    });
+} else return message.reply('لا يوجد لديك الصلاحيات')
+  }
 });
 
 client.on('message', message => {
@@ -604,6 +617,94 @@ if(!message.guild.member(client.user).hasPermission("MUTE_MEMBERS")) return mess
 
   }
 
+});
+
+client.on('message', message => {
+    if (message.content === "Roles") {
+		if(!message.channel.guild) return;
+        var roles = message.guild.roles.map(roles => `${roles.name}, `).join(' ')
+        const embed = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .addField('Roles:',`**[${roles}]**`)
+        message.channel.sendEmbed(embed);
+    }
+});
+
+    client.on('message', message => {
+   if(message.content.startsWith(prefix + "invites")) {
+    message.guild.fetchInvites().then(invs => {
+      let user = message.mentions.users.first() || message.author
+      let personalInvites = invs.filter(i => i.inviter.id === user.id);
+      let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
+message.channel.send(`${user} has ${inviteCount} invites.`);
+});
+  }
+});
+
+ client.on('message', message => {
+    if(message.content.startsWith(prefix + 'alljoin')) {
+     if (!message.member.hasPermission("MOVE_MEMBERS")) return message.channel.send('**لايوجد لديك صلاحية سحب الأعضاء**');
+       if(!message.guild.member(client.user).hasPermission("MOVE_MEMBERS")) return message.reply("**لايوجد لدي صلاحية السحب**");
+    if (message.member.voiceChannel == null) return message.channel.send(`**الرجاء الدخول لروم صوتي**`)
+     var author = message.member.voiceChannelID;
+     var m = message.guild.members.filter(m=>m.voiceChannel)
+     message.guild.members.filter(m=>m.voiceChannel).forEach(m => {
+     m.setVoiceChannel(author)
+     })
+     message.channel.send(`**تم سحب جميع الأعضاء الي الروم الصوتي حقك.**`)
+
+
+     }
+       });
+
+client.on('message', message => {
+  if (!message.content.startsWith(prefix)) return;
+  var args = message.content.split(' ').slice(1);
+  var argresult = args.join(' ');
+  if (message.author.id == 410835593451405312) return;
+
+
+if (message.content.startsWith(prefix + 'playing')) {
+if (message.author.id !== '252813587188416512') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+client.user.setGame(argresult);
+    message.channel.sendMessage(`**${argresult}** : تم تغيير الحالة`)
+} else
+
+if (message.content.startsWith(prefix + 'streem')) {
+if (message.author.id !== '252813587188416512') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+client.user.setGame(argresult, "http://twitch.tv/y04zgamer");
+    message.channel.sendMessage(`**${argresult}** :تم تغيير الحالة الى ستريمنج`)
+} else
+
+if (message.content.startsWith(prefix + 'setname')) {
+if (message.author.id !== '252813587188416512') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+  client.user.setUsername(argresult).then
+      message.channel.sendMessage(`**${argresult}** : تم تغير الأسم`)
+  return message.reply("**لا تستطيع تغير الأسم الا بعد ساعتين**");
+} else
+
+if (message.content.startsWith(prefix + 'setavatar')) {
+if (message.author.id !== '252813587188416512') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+client.user.setAvatar(argresult);
+    message.channel.sendMessage(`**${argresult}** : تم تغير صورة البوت`);
+} else
+
+
+if (message.content.startsWith(prefix + 'watching')) {
+if (message.author.id !== '252813587188416512') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+    client.user.setActivity(argresult, {type : 'watching'});
+ message.channel.sendMessage(`**${argresult}** : تم تغيير الووتشينق الى`)
+}
+});
+
+client.on('messageUpdate', (oldRebel, newRebel) => {
+    console.log("عصو مآ يحآول التعديل.");
+   if (newRebel.content.toUpperCase().match(/DISCORD.GG/i))
+    {
+        console.log(newRebel.author.name + " حاول النشر عبر تعديل الرسآلة - " + newRebel);
+           newRebel.delete().catch(O_o=>{}); 
+           newRebel.author.send("ممنوع روآبط الدسكورد. \n إذآ كنت تريد النشر توآصل من الإدآرة.");
+    }
 });
 
 
