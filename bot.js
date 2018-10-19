@@ -270,7 +270,7 @@ client.on('message', msg => {
 
     if(message.content.includes('discord.gg')){
 
-                                            if(!message.channel.guild) return message.reply('**- :chocolate_bar: #Wèlčomè Ťo Mate Team.:microphone:.**');
+                                            if(!message.channel.guild) return message.reply('**- :chocolate_bar: #Wèlčomè Ťo Our.:microphone:.**');
 
         if (!message.member.hasPermissions(['ADMINISTRATOR'])){
 
@@ -289,7 +289,7 @@ client.on('message', msg => {
 
     if(message.content.includes('youtube')){
 
-                                            if(!message.channel.guild) return message.reply('**- :chocolate_bar: #Wèlčomè Ťo Mate Team.:microphone:.**');
+                                            if(!message.channel.guild) return message.reply('**- :chocolate_bar: #Wèlčomè Ťo Our.:microphone:.**');
 
         if (!message.member.hasPermissions(['ADMINISTRATOR'])){
 
