@@ -46,7 +46,7 @@ const prefix = '$'
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`- Wèlčomè Ťo Mate Team.`,"http://twitch.tv/Mohamed192837465")
+client.user.setGame(`- Wèlčomè Ťo Our.`,"http://twitch.tv/Mohamed192837465")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -77,7 +77,7 @@ client.on('guildMemberAdd', member=> {
 
 
 
-    client.channels.get("494525869356875790").send(`**- 🍫 # Wèlčomè Ťo Mate Team. **
+    client.channels.get("502466166095216641").send(`**- 🍫 # Wèlčomè Ťo Ouُr. **
 
 **# ${member} .**`);
 
