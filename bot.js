@@ -782,13 +782,6 @@ message.react("❌")
 });
 
 
-client.on('message', message => {
-    if (message.content.startsWith("$bans") {
-        message.guild.fetchBans()
-        .then(bans => message.channel.send(`**${bans.size} عدد اشخاص المبندة من السيرفر **`))
-  .catch(console.error);
-}
-});
 
 client.on('message', message => {
     if (message.content.startsWith("infobot")) {
