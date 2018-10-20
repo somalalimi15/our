@@ -77,7 +77,8 @@ client.on('guildMemberAdd', member=> {
 
 
     client.channels.get("502466166095216641").send(`**- 🍫 # Wèlčomè Ťo Ouُr.:candy:  **
-**# ${member} .**`);
+**# أسـم العضُـو.: ${member} .
+  # أنت رُقـم.: ${member.guild.memberCount} **`);
 
     });
 
@@ -122,6 +123,13 @@ client.on("guildMemberAdd", (member) => {
         })
     })
 });
+
+client.on("guildMemberAdd", member => {
+  member.createDM().then(function (channel) {
+  return channel.send(`**Welcome To Our Server.'
+   ${member}`) 
+}).catch(console.error)
+})
 
 client.on('message', message => {
      if (message.content === "Ping") {
@@ -182,78 +190,31 @@ message.author.send(`**مدة الرابط : يـوم
 
 });
 
-	client.on('message', message => {
+client.on('message', message => {
+       if(message.content === prefix + "قفل") {
+                           if(!message.channel.guild) return message.reply('** This command only for servers**');
 
+   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **__ليس لديك صلاحيات__**');
+              message.channel.overwritePermissions(message.guild.id, {
+            SEND_MESSAGES: false
 
+              }).then(() => {
+                  message.reply("**__تم تقفيل الشات__ ✅ **")
+              });
+                }
+//FIRE BOT
+    if(message.content === prefix + "فتح") {
+                        if(!message.channel.guild) return message.reply('** This command only for servers**');
 
-if (message.author.bot) return;
+   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**__ليس لديك صلاحيات__**');
+              message.channel.overwritePermissions(message.guild.id, {
+            SEND_MESSAGES: true
 
-  if (message.content.split(" ")[0].toLowerCase() === prefix + "قفل") {
-
-                        if(!message.channel.guild) return;
-
-
-
-if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('You Need MANAGE_MESSAGES Permission').then(message => message.delete(5000))
-
-           message.channel.overwritePermissions(message.guild.id, {
-
-         SEND_MESSAGES: false
-
-
-
-           }).then(() => {
-
- const e = new Discord.RichEmbed()
-
-               .setAuthor('Channel Disabled By : '+message.author.username)
-
-                .setColor('#36393e')
-
-               
-
-               message.channel.send(e)
-
-               });
-
-             }
-
-if (message.content.split(" ")[0].toLowerCase() === prefix + "فتح") {
-
-    if(!message.channel.guild) return;
-
-
-
-if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('You Need MANAGE_MESSAGES Permission').then(message => message.delete(5000))
-
-           message.channel.overwritePermissions(message.guild.id, {
-
-         SEND_MESSAGES: true
-
-
-
-           }).then(() => {
-
-               const e = new Discord.RichEmbed()
-
-               .setAuthor('Channel Enabled By : '+message.author.username)
-
-                        .setColor('#36393e')
-
-               
-
-               message.channel.send(e)
-
-           });
-
-             }
-
-
-
-
-
-
-
+              }).then(() => {
+                  message.reply("**__تم فتح الشات__✅**")
+              });
+    }
+       
 });
 
 client.on('message', msg => {
@@ -961,6 +922,7 @@ client.on('message',message =>{
    
     }
   });
+
 
 
 client.login(process.env.BOT_TOKEN);
