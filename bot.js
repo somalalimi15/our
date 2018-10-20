@@ -76,8 +76,7 @@ client.on('guildMemberAdd', member=> {
 
 
 
-    client.channels.get("502466166095216641").send(`**- 🍫 # Wèlčomè Ťo Ouُr. **
-
+    client.channels.get("502466166095216641").send(`**- 🍫 # Wèlčomè Ťo Ouُr.:candy:  **
 **# ${member} .**`);
 
     });
@@ -117,7 +116,7 @@ client.on("guildMemberAdd", (member) => {
                 if (dat[Inv] < Invite.uses) {
                     console.log(3);
                     console.log(`${member} joined over ${Invite.inviter}'s invite ${Invite.code}`)
- channel.send(` ♥ **تم دعوته من قبل ${Invite.inviter} ♥ `)            
+ channel.send(`** By : # ${Invite.inviter} :white_sun_cloud: ** `)            
  }
             dat[Inv] = Invite.uses;
         })
