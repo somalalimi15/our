@@ -984,7 +984,7 @@ let INVITE = process.env.INVITE || "https://discord.gg/NRPT3q8", //رابط دع
     APPREDIRECT = process.env.APPREDIRECT || ""
 //End Config
  //فوق انت تسويهن
-const client = new Discord.Client({
+
     messageCacheMaxSize: 1, //Minimize RAM Load
     disabledEvents: ["TYPING_START"] // ^^
 })
@@ -1081,10 +1081,7 @@ let leaveJoin = async() => {
     }
 }
  
-//Login
-client.login(TOKEN)
- // alpha codes 
-///alpha codes
+
  
 //THe WebServer because Discord Is Mean
 const APP = {
